@@ -7,6 +7,10 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
+SQLAlchemy = "^1.4.27"
+python-dotenv = "^0.19.2"
+alembic = "^1.7.5"
 
 
 
