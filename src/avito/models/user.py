@@ -13,4 +13,3 @@ class User(Base):
     patronymic = Column(String(length=255), nullable=True)
     phone = Column(String(length=255))
     status = Column(String(length=255))
-

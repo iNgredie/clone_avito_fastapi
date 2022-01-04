@@ -11,6 +11,9 @@ uvicorn = "^0.15.0"
 SQLAlchemy = "^1.4.27"
 python-dotenv = "^0.19.2"
 alembic = "^1.7.5"
+passlib = "^1.7.4"
+python-jose = "^3.3.0"
+isort = "^5.10.1"
 
 
 
