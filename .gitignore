@@ -107,4 +107,3 @@ venv.bak/
 .idea
 sql_app.db
 src/.env
-.db
