@@ -23,7 +23,7 @@ class Advertisment(Base):
         Integer, ForeignKey('city.id', name='fk_advertisment_city_city_id', ondelete='CASCADE'),
         nullable=True
     )
-    description = Column(Text)
+    description = Column(Text, nullable=True)
     public_at = Column(Date)
     created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
     updated_at = Column(DateTime(timezone=True), onupdate=datetime.utcnow, default=datetime.utcnow)
