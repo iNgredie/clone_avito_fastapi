@@ -2,6 +2,8 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+from avito.models import UserStatus
+
 
 class BaseUser(BaseModel):
     email: str
@@ -14,12 +16,12 @@ class UserCreate(BaseUser):
 
 class User(BaseUser):
     id: int
-    name: str
-    surname: str
+    name: Optional[str]
+    surname: Optional[str]
     patronymic: Optional[str]
-    role: str
-    phone: str
-    status: str
+    role: Optional[str]
+    phone: Optional[str]
+    status: UserStatus
 
     class Config:
         orm_mode = True
