@@ -34,6 +34,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=True),
     sa.Column('city_id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('description', sa.Text(), nullable=True),
     sa.Column('public_at', sa.Date(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
@@ -42,6 +43,7 @@ def upgrade():
     sa.Column('view', sa.Integer(), nullable=True),
     sa.Column('status', sa.Enum('DRAFT', 'ON_MODERATION', 'REJECTED', 'SOLD', 'ACTIVE', name='advertismentstatus'), nullable=True),
     sa.ForeignKeyConstraint(['city_id'], ['city.id'], name='fk_advertisment_city_city_id', ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], name='fk_advertisment_user_user_id', ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

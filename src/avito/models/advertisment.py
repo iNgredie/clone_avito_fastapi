@@ -19,6 +19,9 @@ class AdvertismentStatus(enum.Enum):
 class Advertisment(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(length=255))
+    user_id = Column(
+        Integer, ForeignKey('user.id', name='fk_advertisment_user_user_id', ondelete='CASCADE')
+    )
     city_id = Column(
         Integer, ForeignKey('city.id', name='fk_advertisment_city_city_id', ondelete='CASCADE'),
         nullable=True
