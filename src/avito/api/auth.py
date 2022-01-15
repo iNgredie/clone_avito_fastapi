@@ -5,7 +5,8 @@ from ..schemas.auth import Token, User, UserCreate
 from ..services.auth import AuthService, get_current_user
 
 router = APIRouter(
-    prefix='/auth'
+    prefix='/auth',
+    tags=['auth'],
 )
 
 

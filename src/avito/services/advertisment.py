@@ -14,8 +14,7 @@ class AdvertismentService:
 
     def _get(self, user_id: int, advertisment_id: int) -> models.Advertisment:
         advertisment = (
-            self.session
-            .query(models.Advertisment)
+            self.session.query(models.Advertisment)
             .filter_by(
                 id=advertisment_id,
                 user_id=user_id,
@@ -27,17 +26,15 @@ class AdvertismentService:
         return advertisment
 
     def get_list(self, user_id: int) -> List[models.Advertisment]:
-        query = (
-            self.session
-            .query(models.Advertisment)
-            .filter_by(user_id=user_id)
-        )
+        query = self.session.query(models.Advertisment).filter_by(user_id=user_id)
         return query.all()
 
     def get(self, user_id: int, advertisment_id: int) -> models.Advertisment:
         return self._get(user_id, advertisment_id)
 
-    def create(self, user_id: int, advertisment_data: AdvertismentCreate) -> models.Advertisment:
+    def create(
+        self, user_id: int, advertisment_data: AdvertismentCreate
+    ) -> models.Advertisment:
         advertisment = models.Advertisment(
             **advertisment_data.dict(),
             user_id=user_id,
@@ -46,7 +43,9 @@ class AdvertismentService:
         self.session.commit()
         return advertisment
 
-    def update(self, user_id: int, advertisment_id: int, advertisment_data: AdvertismentUpdate) -> models.Advertisment:
+    def update(
+        self, user_id: int, advertisment_id: int, advertisment_data: AdvertismentUpdate
+    ) -> models.Advertisment:
         advertisment = self._get(user_id, advertisment_id)
         for field, value in advertisment_data:
             setattr(advertisment, field, value)

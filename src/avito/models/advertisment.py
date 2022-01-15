@@ -22,6 +22,9 @@ class Advertisment(Base):
     user_id = Column(
         Integer, ForeignKey('user.id', name='fk_advertisment_user_user_id', ondelete='CASCADE')
     )
+    category_id = Column(
+        Integer, ForeignKey('category.id', name='fk_advertisment_category_category_id', ondelete='CASCADE')
+    )
     city_id = Column(
         Integer, ForeignKey('city.id', name='fk_advertisment_city_city_id', ondelete='CASCADE'),
         nullable=True
