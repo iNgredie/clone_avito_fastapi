@@ -1,8 +1,9 @@
-from typing import List
+from typing import List, Optional
 
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Query, status
 from fastapi.openapi.models import Response
 
+from .. import models
 from ..schemas.advertisment import (
     Advertisment, AdvertismentCreate, AdvertismentUpdate
 )
@@ -20,6 +21,9 @@ router = APIRouter(
 def get_advertisments(
     user: User = Depends(get_current_user),
     service: AdvertismentService = Depends(),
+    price_gte: Optional[int] = Query(None),
+    price_lte: Optional[int] = Query(None),
+    text: Optional[str] = None,
 ):
     return service.get_list(user_id=user.id)
 

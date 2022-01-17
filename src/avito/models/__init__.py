@@ -1,4 +1,4 @@
-from .advertisment import Advertisment  # noqa: F401
+from .advertisment import Advertisment, AdvertismentStatus  # noqa: F401
 from .category import Category  # noqa: F401
 from .city import City  # noqa: F401
 from .region import Region  # noqa: F401

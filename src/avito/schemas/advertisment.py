@@ -11,7 +11,7 @@ class AdvertismentBase(BaseModel):
     name: str
     city_id: int
     description: Optional[str]
-    public_at: datetime
+    published_at: datetime
     created_at: datetime
     updated_at: datetime
     price: Decimal

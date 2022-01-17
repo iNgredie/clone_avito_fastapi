@@ -26,7 +26,9 @@ class AdvertismentService:
         return advertisment
 
     def get_list(self, user_id: int) -> List[models.Advertisment]:
-        query = self.session.query(models.Advertisment).filter_by(user_id=user_id)
+        query = self.session.query(models.Advertisment).filter_by(
+            user_id=user_id, status=models.AdvertismentStatus.ACTIVE
+        )
         return query.all()
 
     def get(self, user_id: int, advertisment_id: int) -> models.Advertisment:

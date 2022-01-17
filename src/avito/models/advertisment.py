@@ -2,7 +2,7 @@ import enum
 from datetime import datetime
 
 from sqlalchemy import (
-    DECIMAL, Column, Date, DateTime, Enum, ForeignKey, Integer, String, Text
+    DECIMAL, Column, DateTime, Enum, ForeignKey, Integer, String, Text
 )
 
 from ..models.base import Base
@@ -30,7 +30,7 @@ class Advertisment(Base):
         nullable=True
     )
     description = Column(Text)
-    public_at = Column(Date)
+    published_at = Column(DateTime(timezone=True))
     created_at = Column(DateTime(timezone=True), default=datetime.utcnow)
     updated_at = Column(DateTime(timezone=True), onupdate=datetime.utcnow, default=datetime.utcnow)
     price = Column(DECIMAL)

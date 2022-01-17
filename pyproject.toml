@@ -16,6 +16,7 @@ python-jose = "^3.3.0"
 isort = "^5.10.1"
 bcrypt = "^3.2.0"
 python-multipart = "^0.0.5"
+psycopg2 = "^2.9.3"
 
 
 
